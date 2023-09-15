@@ -1,10 +1,18 @@
 <script>
-
+    import Counter from '../lib/components/Counter.svelte'
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<section>
+    <h1>Multiple Counter</h1>
+    <Counter />
+</section>
 
 <style>
-    
+    section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
 </style>
