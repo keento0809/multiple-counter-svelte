@@ -1,14 +1,16 @@
 <script>
     import Counter from '../lib/components/Counter.svelte'
+    import Dashboard from '$lib/components/Dashboard.svelte';
 </script>
 
-<section>
+<section class="root">
     <h1>Multiple Counter</h1>
     <Counter />
+    <Dashboard />
 </section>
 
 <style>
-    section {
+    .root {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
