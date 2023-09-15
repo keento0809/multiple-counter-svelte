@@ -2,7 +2,7 @@
     let count = 0
 </script>
 
-<section>
+<section class="counter-container">
     <div>
         <input type="text" placeholder="test">
     </div>
@@ -17,26 +17,26 @@
 </section>
 
 <style>
-    section {
+    .counter-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 2rem;
     }
-    button {
+    .counter-container button {
         outline: none;
         padding: 0.4rem 1.5rem;
         border-radius: 8px;
         border: none;
     }
-    button.plus {
+    .counter-container button.plus {
         background-color: red;
     }
-    button.minus {
+    .counter-container button.minus {
         background-color: blue;
     }
-    button.reset {
+    .counter-container button.reset {
         background-color: yellow;
     }
 </style>
