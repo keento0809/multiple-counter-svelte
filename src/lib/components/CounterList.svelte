@@ -6,7 +6,7 @@
   export let totalCount:number;
 </script>
 
-<section>
+<section class="counterlist-container">
     <ul>
         {#each counters as counter (counter.id)}
             <Counter bind:counter={counter} bind:totalCount={totalCount} />
@@ -15,5 +15,8 @@
 </section>
 
 <style>
-
+    .counterlist-container ul {
+        padding: 0;
+        margin: 0;
+    }
 </style>
