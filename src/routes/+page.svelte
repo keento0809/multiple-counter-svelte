@@ -7,20 +7,17 @@
 </script>
 
 <script lang="ts">
-    import CounterList from '$lib/components/CounterList.svelte';
-    import Dashboard from '$lib/components/Dashboard.svelte';
+    import { CounterList,Dashboard } from '$lib';
     import { v4 as uuid } from 'uuid';
 
     const commonInitialCounterValues:Omit<CounterInfo,'id'> = {
         title:'new',
         currentCount:0
     }
-
     let counters:Array<CounterInfo> = [{
         id:uuid(),
         ...commonInitialCounterValues
     }]
-
     const handleAddNewCounter:() => void = () => {
         counters = [...counters,{
             id:uuid(),

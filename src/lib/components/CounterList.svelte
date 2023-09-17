@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { CounterInfo } from "../../routes/+page.svelte";
-  import Counter from "./Counter.svelte";
+  import { Counter } from "$lib";
 
   export let counters:Array<CounterInfo>;
   export let handleDeleteCounter:(selectedId:string) => void;

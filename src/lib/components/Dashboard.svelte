@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { CounterInfo } from "../../routes/+page.svelte";
+    
     export let handleAddNewCounter:() => void;
     export let counters:Array<CounterInfo>
 </script>
