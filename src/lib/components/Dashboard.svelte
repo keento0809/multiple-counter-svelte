@@ -1,7 +1,5 @@
 <script lang="ts">
-  import type { CounterInfo } from "../../routes/+page.svelte";
-
-    export let totalCount:number;
+    import type { CounterInfo } from "../../routes/+page.svelte";
     export let handleAddNewCounter:() => void;
     export let counters:Array<CounterInfo>
 </script>
@@ -14,7 +12,9 @@
         <p><span class="dashboard-content-title">title list:</span> {#each counters as counter (counter.id)}<span class="dashboard-content-titleName">{counter.title + ' '}</span>{/each}</p>
     </div>
     <div class="dashboard-content">
-        <p><span class="dashboard-content-title">total count:</span> {totalCount}</p>
+        <p><span class="dashboard-content-title">total count:</span> {counters.reduce((total,curr) => {
+            return total + curr.currentCount
+        },0)}</p>
     </div>
 </section>
 

@@ -1,22 +1,19 @@
 <script lang="ts">
     import type { CounterInfo } from "../../routes/+page.svelte";
     export let counter:CounterInfo;
-    export let totalCount:number;
+    export let handleDeleteCounter:(selectedId:string) => void;
     type Action = "INCREMENT" | "DECREMENT" | "RESET"
     const handleChangeCounter:(act:Action) => void = (act) => {
         switch(act) {
             case "INCREMENT": {
                 counter.currentCount += 1
-                totalCount += 1
                 break
             }
             case "DECREMENT": {
                 counter.currentCount -= 1
-                totalCount -= 1
                 break
             }
             case "RESET": {
-                totalCount -= counter.currentCount
                 counter.currentCount = 0
                 break
             }
@@ -40,7 +37,7 @@
         <button class="reset" on:click={() => handleChangeCounter('RESET')}>0</button>
     </div>
     <div>
-        <span>&times;</span>
+        <button class="delete" on:click={() => handleDeleteCounter(counter.id)}>&times;</button>
     </div>
 </li>
 
@@ -94,6 +91,9 @@
     }
     .counter-container button.reset {
         background-color: rgb(249, 249, 31);
+    }
+    .counter-container button.delete {
+        background-color: rgb(31, 200, 251);
     }
 
 </style>

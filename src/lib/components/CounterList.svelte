@@ -3,13 +3,13 @@
   import Counter from "./Counter.svelte";
 
   export let counters:Array<CounterInfo>;
-  export let totalCount:number;
+  export let handleDeleteCounter:(selectedId:string) => void;
 </script>
 
 <section class="counterlist-container">
     <ul>
         {#each counters as counter (counter.id)}
-            <Counter bind:counter={counter} bind:totalCount={totalCount} />
+            <Counter bind:counter={counter} handleDeleteCounter={handleDeleteCounter} />
         {/each}
     </ul>
 </section>
