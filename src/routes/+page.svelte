@@ -15,7 +15,6 @@
         title:'default',
         currentCount:0
     }]
-    let titleList:Array<string> = []
     let totalCount = 0;
 
     const handleAddNewCounter:() => void = () => {
@@ -29,8 +28,8 @@
 
 <section class="root">
     <h1>Multiple Counter</h1>
-    <CounterList counters={counters} bind:totalCount={totalCount}  />
-    <Dashboard bind:totalCount={totalCount} handleAddNewCounter={handleAddNewCounter} titleList={titleList} />
+    <CounterList bind:counters={counters} bind:totalCount={totalCount} />
+    <Dashboard bind:totalCount={totalCount} handleAddNewCounter={handleAddNewCounter} bind:counters={counters} />
 </section>
 
 <style>

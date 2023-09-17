@@ -8,8 +8,8 @@
 
 <section>
     <ul>
-        {#each counters  as counter (counter.id)}
-            <Counter counter={counter} bind:totalCount={totalCount} />
+        {#each counters as counter (counter.id)}
+            <Counter bind:counter={counter} bind:totalCount={totalCount} />
         {/each}
     </ul>
 </section>
