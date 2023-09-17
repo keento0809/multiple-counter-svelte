@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { CounterInfo } from "../../routes/+page.svelte";
+    export let counterInfo:CounterInfo
     type Action = "INCREMENT" | "DECREMENT" | "RESET"
     let count = 0
     const handleChangeCounter:(act:Action) => void = (act) => {
@@ -22,19 +24,19 @@
     }
 </script>
 
-<section class="counter-container">
+<li class="counter-container">
     <div>
-        <input type="text" placeholder="new">
+        <input type="text" placeholder="new" value={counterInfo.title}>
     </div>
     <div class="counter">
-        <span>{count}</span>
+        <span>{counterInfo.currentCount}</span>
     </div>
     <div>
         <button class="plus" on:click={() => handleChangeCounter('INCREMENT')}>&plus;</button>
         <button class="minus" on:click={() => handleChangeCounter('DECREMENT')}>&minus;</button>
         <button class="reset" on:click={() => handleChangeCounter('RESET')}>0</button>
     </div>
-</section>
+</li>
 
 <style>
     .counter-container {
@@ -43,6 +45,7 @@
         justify-content: center;
         align-items: center;
         gap: 2rem;
+        padding: 0.5rem 0;
     }
     .counter-container .counter {
         display: block;
