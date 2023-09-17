@@ -24,7 +24,7 @@
 
 <section class="counter-container">
     <div>
-        <input type="text" placeholder="test">
+        <input type="text" placeholder="new">
     </div>
     <div class="counter">
         <span>{count}</span>

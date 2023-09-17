@@ -1,11 +1,12 @@
 <script lang="ts">
-    let titleList:Array<string> = []
-    let totalCount = 0
+    export let totalCount:number;
+    export let handleAddNewCounter:() => void;
+    export let titleList:Array<string>
 </script>
 
 <section class="dashboard-container">
     <div>
-        <button>New Counter</button>
+        <button on:click={handleAddNewCounter}>New Counter</button>
     </div>
     <div>
         <p>title list: {titleList}</p>
