@@ -63,13 +63,13 @@
         outline: none;
         border: 1px solid rgb(168, 163, 163);
         border-radius: 8px;
-        min-width: 14rem;
+        min-width: 15rem;
     }
     .counter-container span {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 1rem;
+        min-width: 2rem;
         padding: 0 0.5rem;
     }
     .counter-container button {

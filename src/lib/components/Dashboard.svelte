@@ -53,6 +53,6 @@
         border-radius: 8px;
         background-color: rgb(255, 201, 165);
         padding: 0.2rem 0.8rem;
-        margin: 0 0.2rem;
+        margin: 0.2rem;
     }
 </style>
