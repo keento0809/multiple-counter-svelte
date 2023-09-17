@@ -28,7 +28,7 @@
 
 <li class="counter-container">
     <div>
-        <input type="text" placeholder="new" value={counter.title}>
+        <input type="text" placeholder="new" bind:value={counter.title}>
     </div>
     <div class="counter">
         <span>{counter.currentCount}</span>

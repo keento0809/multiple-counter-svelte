@@ -15,7 +15,7 @@
         title:'default',
         currentCount:0
     }]
-    let titleList:Array<string> = []
+    let titleList:Array<string> = counters.map((c) => c.title)
     let totalCount = 0;
 
     const handleAddNewCounter:() => void = () => {
@@ -24,12 +24,13 @@
             title: 'default',
             currentCount: 0
         }]
+        titleList = [...titleList,' default']
     }
 </script>
 
 <section class="root">
     <h1>Multiple Counter</h1>
-    <CounterList counters={counters} bind:totalCount={totalCount}  />
+    <CounterList bind:counters={counters} bind:totalCount={totalCount} />
     <Dashboard bind:totalCount={totalCount} handleAddNewCounter={handleAddNewCounter} titleList={titleList} />
 </section>
 
