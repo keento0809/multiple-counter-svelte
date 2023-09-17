@@ -39,6 +39,9 @@
         <button class="minus" on:click={() => handleChangeCounter('DECREMENT')}>&minus;</button>
         <button class="reset" on:click={() => handleChangeCounter('RESET')}>0</button>
     </div>
+    <div>
+        <span>&times;</span>
+    </div>
 </li>
 
 <style>
@@ -48,12 +51,29 @@
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        padding: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        background-color: rgb(197, 255, 236);
     }
     .counter-container .counter {
         display: block;
         justify-content: center;
         align-items: center;
+    }
+    .counter-container input {
+        padding:0.5rem 0rem 0.5rem 1rem;
+        outline: none;
+        border: 1px solid rgb(168, 163, 163);
+        border-radius: 8px;
+        min-width: 14rem;
+    }
+    .counter-container span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 1rem;
+        padding: 0 0.5rem;
     }
     .counter-container button {
         outline: none;
@@ -67,13 +87,13 @@
         transform: scale(1.1);
     }
     .counter-container button.plus {
-        background-color: red;
+        background-color: rgb(242, 36, 36);
     }
     .counter-container button.minus {
-        background-color: blue;
+        background-color: rgb(90, 90, 203);
     }
     .counter-container button.reset {
-        background-color: yellow;
+        background-color: rgb(249, 249, 31);
     }
 
 </style>
