@@ -8,7 +8,7 @@
 <section>
     <ul>
         {#each counters  as counter (counter.id)}
-            <Counter counterInfo={counter} />
+            <Counter counter={counter} />
         {/each}
     </ul>
 </section>
