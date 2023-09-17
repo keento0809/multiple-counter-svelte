@@ -1,15 +1,18 @@
 <script lang="ts">
     import type { CounterInfo } from "../../routes/+page.svelte";
-    export let counter:CounterInfo
+    export let counter:CounterInfo;
+    export let totalCount:number;
     type Action = "INCREMENT" | "DECREMENT" | "RESET"
     const handleChangeCounter:(act:Action) => void = (act) => {
         switch(act) {
             case "INCREMENT": {
                 counter.currentCount += 1
+                totalCount += 1
                 break
             }
             case "DECREMENT": {
                 counter.currentCount -= 1
+                totalCount -= 1
                 break
             }
             case "RESET": {
