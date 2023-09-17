@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
     export type CounterInfo = {
-        id:number;
+        id:string;
         title: string;
         currentCount: number;
     };
@@ -9,27 +9,33 @@
 <script lang="ts">
     import CounterList from '$lib/components/CounterList.svelte';
     import Dashboard from '$lib/components/Dashboard.svelte';
+    import { v4 as uuid } from 'uuid';
+
+    const commonInitialCounterValues:Omit<CounterInfo,'id'> = {
+        title:'new',
+        currentCount:0
+    }
 
     let counters:Array<CounterInfo> = [{
-        id:1,
-        title:'default',
-        currentCount:0
+        id:uuid(),
+        ...commonInitialCounterValues
     }]
-    let totalCount = 0;
 
     const handleAddNewCounter:() => void = () => {
         counters = [...counters,{
-            id: counters.length + 1,
-            title: 'default',
-            currentCount: 0
+            id:uuid(),
+            ...commonInitialCounterValues
         }]
+    }
+    const handleDeleteCounter:(selectedId:string) => void = (selectedId) => {
+        counters = counters.filter((c) => c.id !== selectedId)
     }
 </script>
 
 <section class="root">
     <h1>Multiple Counter</h1>
-    <CounterList bind:counters={counters} bind:totalCount={totalCount} />
-    <Dashboard bind:totalCount={totalCount} handleAddNewCounter={handleAddNewCounter} bind:counters={counters} />
+    <CounterList bind:counters={counters} handleDeleteCounter={handleDeleteCounter} />
+    <Dashboard bind:counters={counters} handleAddNewCounter={handleAddNewCounter} />
 </section>
 
 <style>
