@@ -16,6 +16,7 @@
                 break
             }
             case "RESET": {
+                totalCount -= counter.currentCount
                 counter.currentCount = 0
                 break
             }
