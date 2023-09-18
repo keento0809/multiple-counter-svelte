@@ -1,55 +1,20 @@
 <script lang="ts">
   import type { CounterInfo } from "../../routes/+page.svelte";
+  import { ButtonBlock } from "$lib";
 
   export let counter: CounterInfo;
   export let handleDeleteCounter: (selectedId: string) => void;
-
-  type Action = "INCREMENT" | "DECREMENT" | "RESET";
-
-  const handleChangeCounter: (act: Action) => void = (act) => {
-    switch (act) {
-      case "INCREMENT": {
-        counter.currentCount += 1;
-        break;
-      }
-      case "DECREMENT": {
-        counter.currentCount -= 1;
-        break;
-      }
-      case "RESET": {
-        counter.currentCount = 0;
-        break;
-      }
-      default: {
-        return;
-      }
-    }
-  };
 </script>
 
 <li class="counter">
-  <div>
-    <input type="text" placeholder="new" bind:value={counter.title} />
-  </div>
+  <input type="text" placeholder="new" bind:value={counter.title} />
   <div class="counter-value">
     <span>{counter.currentCount}</span>
   </div>
-  <div>
-    <button class="plus" on:click={() => handleChangeCounter("INCREMENT")}
-      >&plus;</button
-    >
-    <button class="minus" on:click={() => handleChangeCounter("DECREMENT")}
-      >&minus;</button
-    >
-    <button class="reset" on:click={() => handleChangeCounter("RESET")}
-      >0</button
-    >
-  </div>
-  <div>
-    <button class="delete" on:click={() => handleDeleteCounter(counter.id)}
-      >&times;</button
-    >
-  </div>
+  <ButtonBlock bind:counter />
+  <button class="delete" on:click={() => handleDeleteCounter(counter.id)}
+    >&times;</button
+  >
 </li>
 
 <style>
@@ -93,15 +58,6 @@
   }
   .counter button:hover {
     transform: scale(1.1);
-  }
-  .counter button.plus {
-    background-color: rgb(242, 36, 36);
-  }
-  .counter button.minus {
-    background-color: rgb(90, 90, 203);
-  }
-  .counter button.reset {
-    background-color: rgb(249, 249, 31);
   }
   .counter button.delete {
     background-color: rgb(31, 200, 251);
